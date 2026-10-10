@@ -3,8 +3,8 @@
   "appName": "DroidEye",
   "webDir": "droideye/www",
   "server": {
-    "url": "http://192.168.1.10:4173",
-    "cleartext": true
+    "url": "https://droideye.onrender.com",
+    "cleartext": false
   },
   "android": {
     "allowMixedContent": false
