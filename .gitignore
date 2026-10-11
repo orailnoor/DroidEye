@@ -23,4 +23,4 @@ pinokio/ENVIRONMENT
 pinokio/.installed
 
 # DroidEye build output
-DroidEye-debug.apk
+*.apk

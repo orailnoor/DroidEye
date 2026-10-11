@@ -1,0 +1,82 @@
+/* DroidEye immersive mode: one menu button replaces the "EXIT CLEAN VIEW" pill. */
+
+body.droideye-immersive #clean-view-exit {
+  display: none !important;
+}
+
+#droideye-menu-btn {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 112px);
+  right: calc(env(safe-area-inset-right, 0px) + 16px);
+  z-index: 310; /* above clean-view chrome (300) */
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(120, 220, 255, 0.35);
+  background: rgba(8, 14, 22, 0.78);
+  color: #d9f7ff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.12s ease,
+    background 0.2s ease;
+}
+
+#droideye-menu-btn:active {
+  transform: scale(0.92);
+}
+
+#droideye-menu-btn:focus-visible {
+  outline: 2px solid #78dcff;
+  outline-offset: 3px;
+}
+
+#droideye-menu-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* Slightly brighter while the controls are showing. */
+body.droideye-immersive:not(.ui-clean-view) #droideye-menu-btn {
+  background: rgba(20, 40, 56, 0.92);
+}
+
+/* Voice control is disabled in DroidEye v1. */
+body.droideye-no-voice #gev-voice-control,
+body.droideye-no-voice #gev-voice-button,
+body.droideye-no-voice #gev-voice-card,
+body.droideye-no-voice .gev-voice-card {
+  display: none !important;
+}
+
+/* Without the mic in the middle, give the dock's two buttons room for labels. */
+body.droideye-no-voice #command-dock {
+  --dock-side-compact: 10rem !important;
+  --dock-voice-width: 0px !important;
+}
+
+body.droideye-no-voice #command-dock .panel-title,
+body.droideye-no-voice #command-dock .location-toolbar-label {
+  max-width: none !important;
+  white-space: nowrap;
+}
+
+/* Inside the Flutter app, Flutter draws every control. */
+body.droideye-embedded #droideye-menu-btn,
+body.droideye-embedded #clean-view-exit,
+body.droideye-embedded #first-run-launcher,
+body.droideye-embedded .first-run-card,
+body.droideye-embedded #first-run-dialog {
+  display: none !important;
+}
